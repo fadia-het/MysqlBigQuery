@@ -1,0 +1,12 @@
+jobName: kafkaKafkaToBigQuery
+jobConfigClientProperties: !<FlinkBigQuerySink>
+  bucketName:
+operatorConfigs:
+  sourceId: !<SinkOperatorConfig>
+    operatorParallelism: 1
+    executionClassName: com.flipkart.fstream.processor.executionengine.FlinkExecutionEngine
+    flinkConfPoolName: FstreamFlinkIntegrationTesting
+  sinkId: !<SinkOperatorConfig>
+    executionClassName: com.flipkart.fdsg.fstream.ifaces.sink.IFStreamSink
+    config: !<ISinkConfig>
+    triggerDependencies: true
