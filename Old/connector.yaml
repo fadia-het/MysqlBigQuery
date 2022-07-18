@@ -10,3 +10,5 @@ operatorConfigs:
     executionClassName: com.flipkart.fdsg.fstream.ifaces.sink.IFStreamSink
     config: !<ISinkConfig>
     triggerDependencies: true
+
+
