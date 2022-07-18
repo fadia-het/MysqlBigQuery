@@ -1,4 +1,4 @@
-jobName: WMSReplicatorJobTest
+jobName: sinkConnector
 jobConfigClientProperties: !<DynamicBucketClientProperties>
   bucketName: FStream-Job.Stage
 executionEngineConfig: !<FlinkExecutionEngine>
@@ -7,10 +7,10 @@ executionEngineConfig: !<FlinkExecutionEngine>
 operatorConfigs:
   sourceId: !<SourceOperatorConfig>
     executionClassName: com.flipkart.fdsg.fstream.source.flink.FlinkFStreamKafkaImpl
-    config: !<SparkStreamingKafkaSourceConfig>
+    config: !<FlinkKafkaSourceConfig>
       infraConfig: !<KafkaInfraConfig>
         poolName: FStreamStageKafka
-      taskConfig: !<SparkStreamingKafkaSourceTaskConfig>
+      taskConfig: !<FlinkKafkaSourceTaskConfig>
         topics:
           - source-kafka-bigquery--test
         flinkConfPoolName: FStreamFlinkIntegrationTest
@@ -22,5 +22,5 @@ operatorConfigs:
       infraConfig: !<BigQueryInfraConfig>
         poolName: FStreamStageBigQuery
       taskConfig: !<BigQuerySinkTaskConfig>
-        datasetName: test_1
-        tableName: test-bq-sink-1
+        datasetName: basketball
+        tableName: Test
